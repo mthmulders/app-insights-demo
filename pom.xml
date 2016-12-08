@@ -1,12 +1,32 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>nl.infosupport</groupId>
   <artifactId>proposalkeeper</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>proposalkeeper</name>
-  <url>http://maven.apache.org</url>
+  <url>https://github.com/wmeints/app-insights-demo</url>
+  <scm>
+    <url>https://github.com/wmeints/app-insights-demo</url>
+    <connection>scm:git://github.com/wmeints/app-insights-demo.git</connection>
+    <developerConnection>scm:git:git@github.com:wmeints/app-insights-demo.git</developerConnection>
+  </scm>
+  <licenses>
+    <license>
+      <name>Apache-2.0</name>
+      <url>https://opensource.org/licenses/Apache-2.0</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>wmeints</id>
+      <email>willemm@infosuport.com</email>
+      <name>Willem Meints</name>
+      <url>https://github.com/wmeints</url>
+    </developer>
+  </developers>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
