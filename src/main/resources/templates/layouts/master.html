@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <title>Layout page</title>
+  <link rel="stylesheet" href="/semantic.min.css">
+  <link rel="stylesheet" href="/site.css">
+</head>
+<body>
+
+  <div class="ui container" layout:fragment="menu">
+    <div class="ui fixed top menu">
+      <a href="/" class="item">Home</a>
+      <a href="/proposals" class="item">Proposals</a>
+    </div>
+  </div>
+
+  <div class="page-content" layout:fragment="content">
+
+  </div>
+
+  <script src="/jquery-3.1.1.min.js"></script>
+  <script src="/semantic.min.js"></script>
+
+</body>
+</html>
