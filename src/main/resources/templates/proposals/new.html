@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/master}">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layouts/master}">
 <head>
   <title>Submit new proposal - Proposalkeeper</title>
 </head>
@@ -25,6 +25,20 @@
     </div>
 
     <h1 class="huge header">Submit new proposal</h1>
+
+    <form action="/proposals" method="post" class="ui form" th:object="${submission}">
+      <div class="field" th:classappend="${#fields.hasErrors('sessionTitle')} ? 'error'">
+        <label for="sessionTitle">Session Title</label>
+        <input type="text" id="sessionTitle" th:field="*{sessionTitle}">
+      </div>
+      <p th:each="err: ${#fields.errors('sessionTitle')}" th:text="${err}" class="ui error"></p>
+      <div class="field" th:classappend="${#fields.hasErrors('sessionAbstract')} ? 'error'">
+        <label for="sessionAbstract">Session Abstract</label>
+        <textarea id="sessionAbstract" th:field="*{sessionAbstract}"></textarea>
+      </div>
+      <p th:each="err: ${#fields.errors('sessionAbstract')}" th:text="${err}" class="ui error"></p>
+      <button type="submit" class="ui primary button">Submit proposal</button>
+    </form>
   </div>
 </div>
 </body>

@@ -33,3 +33,7 @@ body {
 .ui.vertical.stripe p {
   font-size: 1.33em;
 }
+
+p.ui.error {
+  color: #9F3A38;
+}
