@@ -1,6 +1,6 @@
-<!DOCTYPE html>
+<!DOCTYPE html >
 
-<html>
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
   <title>Home - Proposalkeeper</title>
   <link rel="stylesheet" href="/semantic.min.css">
@@ -18,8 +18,9 @@
           <a href="/" class="active item">Home</a>
           <a href="/proposals" class="item">Proposals</a>
           <div class="right item">
-            <a class="ui inverted button" href="/account/login">Login</a>
-            <a class="ui inverted button" href="/account/register">Register</a>
+            <a class="ui inverted button" href="/account/login" sec:authorize="isAnonymous()">Sign in</a>
+            <a class="ui inverted button" href="/account/register" sec:authorize="isAnonymous()">Register</a>
+            <a class="ui inverted button" href="/account/logout" sec:authorize="isAuthenticated()">Sign out</a>
           </div>
         </div>
       </div>

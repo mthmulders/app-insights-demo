@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layouts/master}">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layouts/master}"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
   <title>Proposals - Proposalkeeper</title>
 </head>
@@ -11,8 +13,9 @@
       <a href="/" class="item">Home</a>
       <a href="/proposals" class="active item">Proposals</a>
       <div class="right menu">
-        <a href="/account/login" class="item">Sign in</a>
-        <a href="/account/register" class="item">Register</a>
+        <a href="/account/login" class="item" sec:authorize="!isAuthenticated()">Sign in</a>
+        <a href="/account/register" class="item" sec:authorize="!isAuthenticated()">Register</a>
+        <a href="/account/logout" class="item" sec:authorize="isAuthenticated()">Sign out</a>
       </div>
     </div>
   </div>

@@ -32,34 +32,6 @@ public class AccountController {
     }
 
     /**
-     * Renders the login page for the user
-     *
-     * @return Returns the view for the login page
-     */
-    @RequestMapping(path = "/account/login", method = RequestMethod.GET)
-    public ModelAndView login() {
-        return new ModelAndView("/account/login", ImmutableMap.of("loginData", new LoginData()));
-    }
-
-    /**
-     * Completes the login operation
-     *
-     * @param loginData     Data used to authenticate the user
-     * @param bindingResult The binding result for the login data
-     * @return Returns the model and view for the login operation
-     */
-    @RequestMapping(path = "/account/login", method = RequestMethod.POST)
-    public ModelAndView completeLogin(@Valid @ModelAttribute("loginData") final LoginData loginData, final BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return new ModelAndView("/account/login", ImmutableMap.of("loginData", loginData));
-        }
-
-        //TODO: Perform actual login
-
-        return new ModelAndView("redirect:/");
-    }
-
-    /**
      * Renders the registration page
      *
      * @return Returns the model and view for the registration page

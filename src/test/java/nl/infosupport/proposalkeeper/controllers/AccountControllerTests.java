@@ -22,38 +22,6 @@ public class AccountControllerTests {
     }
 
     @Test
-    public void loginRendersTheLoginPage() {
-        ModelAndView result = accountController.login();
-        assertThat(result.getViewName(), equalTo("/account/login"));
-    }
-
-    @Test
-    public void completeLoginRedirectsToTheHomepage() {
-        BindingResult bindingResult = mock(BindingResult.class);
-
-        when(bindingResult.hasErrors()).thenReturn(false);
-
-        ModelAndView  result = accountController.completeLogin(
-            new LoginData("test@domain.org","test"),
-            bindingResult);
-
-        assertThat(result.getViewName(), equalTo("redirect:/"));
-    }
-
-    @Test
-    public void completeLoginWithErrorsRendersTheLoginPage() {
-        BindingResult bindingResult = mock(BindingResult.class);
-
-        when(bindingResult.hasErrors()).thenReturn(true);
-
-        ModelAndView  result = accountController.completeLogin(
-            new LoginData("test@domain.org","test"),
-            bindingResult);
-
-        assertThat(result.getViewName(), equalTo("/account/login"));
-    }
-
-    @Test
     public void registerWithValidDataRedirectToLoginPage() {
         BindingResult bindingResult = mock(BindingResult.class);
         when(bindingResult.hasErrors()).thenReturn(false);
