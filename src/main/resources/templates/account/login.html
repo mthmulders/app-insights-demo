@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layouts/master}">
+<head>
+  <title>Sign in - Proposalkeeper</title>
+</head>
+<body>
+<div class="ui container" layout:fragment="menu">
+  <div class="ui fixed top menu">
+    <div class="ui container">
+      <a href="/" class="item">Home</a>
+      <a href="/proposals" class="item">Proposals</a>
+      <div class="right menu">
+        <a href="/account/login" class="item">Sign in</a>
+        <a href="/account/register" class="item">Register</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page-content" layout:fragment="content">
+  <div class="ui container">
+    <div class="ui breadcrumb">
+      <a href="/" class="section">Home</a>
+      <div class="divider">/</div>
+      <div class="section">Account</div>
+      <div class="divider">/</div>
+      <div class="active section">Sign in</div>
+    </div>
+
+    <h1 class="huge header">Sign in</h1>
+
+    <form action="/account/login" method="post" class="ui form" th:object="${loginData}">
+      <div class="field" th:classappend="${#fields.hasErrors('email')} ? 'error'">
+        <label for="email">E-mail address</label>
+        <input type="text" th:field="*{email}">
+      </div>
+      <p th:each="err: ${#fields.errors('email')}" th:text="${err}" class="ui error"></p>
+      <div class="field" th:classappend="${#fields.hasErrors('password')} ? 'error'">
+        <label for="password">Password</label>
+        <input type="password" th:field="*{password}">
+      </div>
+      <p th:each="err: ${#fields.errors('password')}" th:text="${err}" class="ui error"></p>
+      <button type="submit" class="ui primary button">Sign in</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>

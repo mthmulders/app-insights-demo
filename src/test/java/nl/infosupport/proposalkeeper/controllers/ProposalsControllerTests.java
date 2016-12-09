@@ -26,7 +26,7 @@ public class ProposalsControllerTests {
     }
 
     @Test
-    public void testListProposalsReturnsProposalsListView() {
+    public void listProposalsReturnsProposalsListView() {
         List<Proposal> proposals = List.of(
           new Proposal(1L, 1L, "Test session 1", "Test description"),
             new Proposal(2L, 1L, "Test session 2", "Test description")
@@ -40,14 +40,14 @@ public class ProposalsControllerTests {
     }
 
     @Test
-    public void testCreateProposalReturnsNewProposalView() {
+    public void createProposalReturnsNewProposalView() {
         ModelAndView result = controller.createNewProposal();
 
         assertThat(result.getViewName(), equalTo("/proposals/new"));
     }
 
     @Test
-    public void testSubmitProposalRedirectsToListView() {
+    public void submitProposalRedirectsToListView() {
         BindingResult bindingResult = mock(BindingResult.class);
         when(bindingResult.hasErrors()).thenReturn(false);
 
@@ -62,14 +62,14 @@ public class ProposalsControllerTests {
     }
 
     @Test
-    public void testSubmitInvokesProposalService() {
+    public void submitInvokesProposalService() {
         BindingResult bindingResult = mock(BindingResult.class);
         when(bindingResult.hasErrors()).thenReturn(false);
 
         when(proposalService.submit(any(), any(), any()))
             .thenReturn(new Proposal(1L, 1L, "Sample", "Sample"));
 
-        ModelAndView result = controller.submitProposal(new ProposalSubmission(), bindingResult);
+        controller.submitProposal(new ProposalSubmission(), bindingResult);
 
         verify(proposalService).submit(any(),any(),any());
     }

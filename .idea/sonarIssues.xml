@@ -48,6 +48,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/nl/infosupport/proposalkeeper/controllers/AccountController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/nl/infosupport/proposalkeeper/controllers/HomeController.java">
           <value>
             <set />
@@ -58,7 +63,32 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/nl/infosupport/proposalkeeper/forms/LoginData.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/nl/infosupport/proposalkeeper/forms/RegistrationData.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/nl/infosupport/proposalkeeper/validators/RegistrationDataValidator.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/resources/static/site.css">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/templates/account/login.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/templates/account/register.html">
           <value>
             <set />
           </value>
@@ -88,6 +118,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/nl/infosupport/proposalkeeper/controllers/AccountControllerTests.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/test/java/nl/infosupport/proposalkeeper/controllers/HomeControllerTests.java">
           <value>
             <set />
@@ -99,6 +134,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/test/java/nl/infosupport/proposalkeeper/services/ProposalServiceImplTests.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/nl/infosupport/proposalkeeper/validators/RegistrationDataValidatorTests.java">
           <value>
             <set />
           </value>
