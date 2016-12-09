@@ -1,5 +1,6 @@
 package nl.infosupport.proposalkeeper.controllers;
 
+import com.sun.tools.javac.util.List;
 import nl.infosupport.proposalkeeper.forms.ProposalSubmission;
 import nl.infosupport.proposalkeeper.models.Proposal;
 import nl.infosupport.proposalkeeper.services.ProposalService;
@@ -26,6 +27,13 @@ public class ProposalsControllerTests {
 
     @Test
     public void testListProposalsReturnsProposalsListView() {
+        List<Proposal> proposals = List.of(
+          new Proposal(1L, 1L, "Test session 1", "Test description"),
+            new Proposal(2L, 1L, "Test session 2", "Test description")
+        );
+
+        when(proposalService.findAllProposals()).thenReturn(proposals);
+
         ModelAndView result = controller.listAllProposals();
 
         assertThat(result.getViewName(), equalTo("/proposals/index"));

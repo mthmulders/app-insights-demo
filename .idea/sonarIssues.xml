@@ -83,12 +83,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/templates/proposals/submitted.html">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/test/java/nl/infosupport/proposalkeeper/controllers/HomeControllerTests.java">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/test/java/nl/infosupport/proposalkeeper/controllers/ProposalsControllerTests.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/test/java/nl/infosupport/proposalkeeper/services/ProposalServiceImplTests.java">
           <value>
             <set />
           </value>
