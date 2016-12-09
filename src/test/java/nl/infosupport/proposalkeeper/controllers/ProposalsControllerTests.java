@@ -19,7 +19,7 @@ public class ProposalsControllerTests {
 
     @Test
     public void testListProposalsReturnsProposalsListView() {
-        ModelAndView result = controller.listProposals();
+        ModelAndView result = controller.listAllProposals();
 
         assertThat(result.getViewName(), equalTo("/proposals/index"));
     }

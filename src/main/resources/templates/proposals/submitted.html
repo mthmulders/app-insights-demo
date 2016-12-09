@@ -2,7 +2,7 @@
 
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/master}">
 <head>
-  <title>Submit new proposal - Proposalkeeper</title>
+  <title>Proposals - Proposalkeeper</title>
 </head>
 <body>
 <div class="ui container" layout:fragment="menu">
@@ -19,12 +19,14 @@
     <div class="ui breadcrumb">
       <a href="/" class="section">Home</a>
       <div class="divider">/</div>
-      <a href="/proposals" class="section">Proposals</a>
-      <div class="divider">/</div>
-      <div class="active section">Submit proposal</div>
+      <div class="active section">Proposals</div>
     </div>
+    <h1 class="huge header">Proposals</h1>
 
-    <h1 class="huge header">Submit new proposal</h1>
+    <div class="ui secondary pointing menu">
+      <a href="/proposals" class="item">All proposals</a>
+      <a href="/proposals/submitted" class="active item">My proposals</a>
+    </div>
   </div>
 </div>
 </body>

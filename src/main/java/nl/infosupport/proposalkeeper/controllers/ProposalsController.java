@@ -14,16 +14,28 @@ import org.springframework.web.servlet.view.RedirectView;
 public class ProposalsController {
     /**
      * Lists all the proposals submitted by the current user
-     * @return  Returns the model and view for the action
+     *
+     * @return Returns the model and view for the action
      */
     @RequestMapping("/proposals")
-    public ModelAndView listProposals() {
+    public ModelAndView listAllProposals() {
         return new ModelAndView("/proposals/index");
     }
 
     /**
+     * Lists the proposals the user has submitted
+     *
+     * @return Returns the model and view for the action
+     */
+    @RequestMapping("/proposals/submitted")
+    public ModelAndView listSubmittedProposals() {
+        return new ModelAndView("/proposals/submitted");
+    }
+
+    /**
      * Displays a page to create a new proposal
-     * @return  Returns the model and view for the action
+     *
+     * @return Returns the model and view for the action
      */
     @RequestMapping("/proposals/new")
     public ModelAndView createNewProposal() {
@@ -32,7 +44,8 @@ public class ProposalsController {
 
     /**
      * Submits a new proposal for review
-     * @return  Returns the model and view for the action
+     *
+     * @return Returns the model and view for the action
      */
     @RequestMapping(path = "/proposals/", method = RequestMethod.POST)
     public ModelAndView submitProposal() {
