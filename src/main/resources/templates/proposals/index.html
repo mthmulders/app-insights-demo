@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/master}">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layouts/master}">
 <head>
   <title>Proposals - Proposalkeeper</title>
 </head>
@@ -27,6 +27,17 @@
       <a href="/proposals" class="active item">All proposals</a>
       <a href="/proposals/submitted" class="item">My proposals</a>
       <a href="/proposals/new" class="right item">Submit new proposal</a>
+    </div>
+
+    <div class="ui items">
+      <div class="item" th:each="proposal : ${proposals}">
+        <div class="content">
+          <div class="header" th:text="${proposal.title}"></div>
+          <div class="description">
+            <p th:text="${proposal.description}"></p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
