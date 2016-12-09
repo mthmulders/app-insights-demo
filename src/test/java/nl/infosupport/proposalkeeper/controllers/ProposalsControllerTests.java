@@ -1,25 +1,32 @@
 package nl.infosupport.proposalkeeper.controllers;
 
+import nl.infosupport.proposalkeeper.forms.ProposalSubmission;
+import nl.infosupport.proposalkeeper.models.Proposal;
+import nl.infosupport.proposalkeeper.services.ProposalService;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.MatcherAssert.*;
 
-public class ProposalsControllerTests {
+import static org.mockito.Mockito.*;
 
+public class ProposalsControllerTests {
+    private ProposalService proposalService;
     private ProposalsController controller;
 
     @Before
     public void setUp() {
-        controller = new ProposalsController();
+        proposalService = mock(ProposalService.class);
+        controller = new ProposalsController(proposalService);
     }
 
     @Test
     public void testListProposalsReturnsProposalsListView() {
-        ModelAndView result = controller.listProposals();
+        ModelAndView result = controller.listAllProposals();
 
         assertThat(result.getViewName(), equalTo("/proposals/index"));
     }
@@ -33,9 +40,29 @@ public class ProposalsControllerTests {
 
     @Test
     public void testSubmitProposalRedirectsToListView() {
-        ModelAndView result = controller.submitProposal();
+        BindingResult bindingResult = mock(BindingResult.class);
+        when(bindingResult.hasErrors()).thenReturn(false);
 
-        assertThat(result.getView().getClass(), typeCompatibleWith(RedirectView.class));
-        assertThat(((RedirectView)result.getView()).getUrl(), equalTo("/proposals"));
+        when(proposalService.submit(any(), any(), any()))
+            .thenReturn(new Proposal(1L, 1L, "Sample", "Sample"));
+
+        ModelAndView result = controller.submitProposal(
+            new ProposalSubmission(),
+            bindingResult);
+
+        assertThat(result.getViewName(), equalTo("redirect:/proposals"));
+    }
+
+    @Test
+    public void testSubmitInvokesProposalService() {
+        BindingResult bindingResult = mock(BindingResult.class);
+        when(bindingResult.hasErrors()).thenReturn(false);
+
+        when(proposalService.submit(any(), any(), any()))
+            .thenReturn(new Proposal(1L, 1L, "Sample", "Sample"));
+
+        ModelAndView result = controller.submitProposal(new ProposalSubmission(), bindingResult);
+
+        verify(proposalService).submit(any(),any(),any());
     }
 }

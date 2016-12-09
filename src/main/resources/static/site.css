@@ -1,5 +1,5 @@
 body {
-  padding-top: 30px;
+  padding-top: 50px;
 }
 
 .page-content {
@@ -32,4 +32,8 @@ body {
 
 .ui.vertical.stripe p {
   font-size: 1.33em;
+}
+
+p.ui.error {
+  color: #9F3A38;
 }
