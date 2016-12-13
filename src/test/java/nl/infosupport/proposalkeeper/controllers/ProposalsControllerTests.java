@@ -3,12 +3,12 @@ package nl.infosupport.proposalkeeper.controllers;
 import com.sun.tools.javac.util.List;
 import nl.infosupport.proposalkeeper.forms.ProposalSubmission;
 import nl.infosupport.proposalkeeper.models.Proposal;
+import nl.infosupport.proposalkeeper.services.ProposalMetrics;
 import nl.infosupport.proposalkeeper.services.ProposalService;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
 
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.MatcherAssert.*;
@@ -16,13 +16,17 @@ import static org.hamcrest.MatcherAssert.*;
 import static org.mockito.Mockito.*;
 
 public class ProposalsControllerTests {
+    private ProposalMetrics metrics;
     private ProposalService proposalService;
     private ProposalsController controller;
+
 
     @Before
     public void setUp() {
         proposalService = mock(ProposalService.class);
-        controller = new ProposalsController(proposalService);
+        metrics = mock(ProposalMetrics.class);
+
+        controller = new ProposalsController(proposalService, metrics);
     }
 
     @Test

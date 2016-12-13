@@ -2,16 +2,16 @@ package nl.infosupport.proposalkeeper.controllers;
 
 import com.google.common.collect.ImmutableMap;
 import nl.infosupport.proposalkeeper.forms.ProposalSubmission;
+import nl.infosupport.proposalkeeper.models.Proposal;
+import nl.infosupport.proposalkeeper.services.ProposalMetrics;
 import nl.infosupport.proposalkeeper.services.ProposalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
 
 import javax.validation.Valid;
 import java.util.Map;
@@ -22,14 +22,17 @@ import java.util.Map;
 @Controller
 public class ProposalsController {
     private ProposalService proposalService;
+    private ProposalMetrics metrics;
 
     /**
      * Initializes a new instance of {@link ProposalsController}
      * @param proposalService   The proposal service to use
+     * @param metrics
      */
     @Autowired
-    public ProposalsController(ProposalService proposalService) {
+    public ProposalsController(ProposalService proposalService, ProposalMetrics metrics) {
         this.proposalService = proposalService;
+        this.metrics = metrics;
     }
 
     /**
@@ -81,7 +84,10 @@ public class ProposalsController {
         }
 
         //TODO: Fix this so it uses the currently logged on user.
-        proposalService.submit(1L, submission.getSessionTitle(), submission.getSessionAbstract());
+        Proposal submittedProposal = proposalService.submit(
+            1L, submission.getSessionTitle(), submission.getSessionAbstract());
+
+        metrics.trackProposalSubmission(submittedProposal.getId(),submittedProposal.getTitle());
 
         return new ModelAndView("redirect:/proposals");
     }
