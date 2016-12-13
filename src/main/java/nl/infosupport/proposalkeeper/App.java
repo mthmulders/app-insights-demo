@@ -1,5 +1,8 @@
 package nl.infosupport.proposalkeeper;
 
+import com.microsoft.applicationinsights.TelemetryConfiguration;
+import com.microsoft.applicationinsights.telemetry.Telemetry;
+import com.microsoft.applicationinsights.telemetry.TelemetryContext;
 import nz.net.ultraq.thymeleaf.LayoutDialect;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
