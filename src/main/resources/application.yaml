@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    driverClassName: net.sourceforge.jtds.jdbc.Driver
+    url: jdbc:jtds:sqlserver://localhost:1433/proposals
+    username: sa
