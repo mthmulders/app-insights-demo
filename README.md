@@ -8,5 +8,5 @@ to submit proposals for a fake conference. Other users can vote for proposals.
 The session planner of the conference can plan sessions in rooms for tracks.
 
 ## Quickstart
-TODO: Describe how to compile the code and configure
-the necessary settings to get the application working.
+A simple `mvn clean package` should do the trick. 
+After that, start the app using `java -Dspring.datasource.password=MyAwesomePassword -jar target/proposalkeeper-1.0-SNAPSHOT.jar`
