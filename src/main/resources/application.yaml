@@ -1,3 +1,5 @@
+liquibase:
+  change-log: classpath:db.changelog.xml
 spring:
   datasource:
     driverClassName: net.sourceforge.jtds.jdbc.Driver

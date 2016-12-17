@@ -1,11 +1,11 @@
 package nl.infosupport.proposalkeeper.models;
 
 import lombok.*;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Defines a single proposal
@@ -16,6 +16,7 @@ import javax.persistence.Id;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "proposals")
 public class Proposal {
     @Id
     @GeneratedValue
